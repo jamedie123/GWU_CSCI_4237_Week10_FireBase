@@ -26,16 +26,16 @@ class MainActivity2 : AppCompatActivity() {
     }
     private fun getFakeYelpData(): List<YelpBusiness>{
         return listOf(
-            YelpBusiness("Panera", "Breakfast", "4 stars", "https://..."),
-            YelpBusiness("WingsToGo", "Comfort", "5 stars", "https://..."),
-            YelpBusiness("Log Cabin", "Seafood", "4 stars", "https://..."),
-            YelpBusiness("Dunkin Donut", "Breakfast", "3 stars", "https://..."),
-            YelpBusiness("Starbucks", "Coffee", "3 stars", "https://..."),
-            YelpBusiness("Panera", "Breakfast", "3 stars", "https://..."),
-            YelpBusiness("Panera", "Breakfast", "3 stars", "https://..."),
-            YelpBusiness("Panera", "Breakfast", "3 stars", "https://..."),
-            YelpBusiness("Panera", "Breakfast", "3 stars", "https://..."),
-            YelpBusiness(icon="https://...", category = "Dinner", rating = "3 stars", restaurantName="Subway")
+            YelpBusiness("Panera", "Breakfast", 4.2, "https://..."),
+            YelpBusiness("WingsToGo", "Comfort", 5.3 , "https://..."),
+            YelpBusiness("Log Cabin", "Seafood", 4.2, "https://..."),
+            YelpBusiness("Dunkin Donut", "Breakfast", 3.1, "https://..."),
+            YelpBusiness("Starbucks", "Coffee", 3.1, "https://..."),
+            YelpBusiness("Panera", "Breakfast", 3.1, "https://..."),
+            YelpBusiness("Panera", "Breakfast", 3.1 , "https://..."),
+            YelpBusiness("Panera", "Breakfast", 2.8 , "https://..."),
+            YelpBusiness("Panera", "Breakfast", 5.3 , "https://..."),
+            YelpBusiness(icon="https://...", category = "Dinner", rating = 1.2 , restaurantName="Subway")
         )
     }
 }

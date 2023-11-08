@@ -35,7 +35,7 @@ class YelpAdapter(val yelps: List<YelpBusiness>): RecyclerView.Adapter<YelpAdapt
         val currentYelp=yelps[position]
         holder.restaurantText.text= currentYelp.restaurantName
         holder.categoryText.text= currentYelp.category
-        holder.rating.text=currentYelp.rating
+        holder.rating.text=currentYelp.rating.toString()
         Log.d("RV", "inside onBindViewHolder on position $position")
         //holder.icon later
     }

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">loginAppInClass</string>
     <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="tweets_title">Yelp Tweets near %1$s</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="welcome">Welcome, %1$s</string>
 </resources>

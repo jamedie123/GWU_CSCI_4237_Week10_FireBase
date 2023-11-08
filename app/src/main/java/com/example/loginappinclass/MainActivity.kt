@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import com.google.android.gms.maps.MapsInitializer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var username: EditText
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressbar: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         Log.d("MainActivity","onCreate() called")
 
@@ -38,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                 .putString("USERNAME", inputtedUsername)
                 .apply()
 
-            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+            val intent = Intent(this, MapsActivity::class.java)
+//            val intent = Intent(this@MainActivity, MainActivity2::class.java)
             intent.putExtra("location", "Richmond")
             startActivity(intent)
         }
