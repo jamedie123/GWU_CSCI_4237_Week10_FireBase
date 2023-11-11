@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "491294384627",
+    "firebase_url": "https://yelpfirebasefall23-10f59-default-rtdb.firebaseio.com",
+    "project_id": "yelpfirebasefall23-10f59",
+    "storage_bucket": "yelpfirebasefall23-10f59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491294384627:android:0d417b98864e9e22663286",
+        "android_client_info": {
+          "package_name": "com.example.loginappinclass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVtmKwjT5-Yf-j4QJ33s-Blb99t_ZWhOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

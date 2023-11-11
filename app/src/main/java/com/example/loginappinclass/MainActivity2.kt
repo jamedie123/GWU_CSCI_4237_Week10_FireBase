@@ -8,10 +8,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.android.gms.maps.MapsInitializer
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -45,6 +52,49 @@ class MainActivity2 : AppCompatActivity() {
         }else {
             intent.getParcelableExtra<Address>("address")!!
         }
+        //val yelps = getFakeYelpData()
+
+        val state = address.adminArea?: "unknown"
+
+        val reference = firebaseDatabase.getReference("Yelps/$state")
+        addNewYelpBtn.setOnClickListener {
+            val restaurantName = myYelpText.text.toString()
+            val email = FirebaseAuth.getInstance().currentUser!!.email!!
+            val yelp = YelpBusiness(
+                restaurantName = restaurantName,
+                category = email,
+                url = "http...",
+                rating = 5.0,
+                icon = "..."
+            )
+
+            reference.push().setValue(yelp)
+        }
+            //read in changes to database
+            reference.addValueEventListener(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val yelps = mutableListOf<YelpBusiness>()
+                    snapshot.children.forEach { childSnapshot: DataSnapshot ->
+                        val yelp: YelpBusiness? = childSnapshot.getValue(YelpBusiness::class.java)
+                        if (yelp!=null){
+                            yelps.add(yelp)
+                        }
+                    }
+                    val adapter = YelpAdapter(yelps)
+                    recyclerView.adapter = adapter
+                    recyclerView.layoutManager = LinearLayoutManager(this@MainActivity2)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                   Toast.makeText(this@MainActivity2, "failed to connect to db", Toast.LENGTH_LONG).show()
+                    Log.e("YelpFirebase", "DB connect issue", error.toException())
+                }
+            }
+
+
+            )
+
+
 /*     val yelpManager = YelpManager()
         val gwuLat = address.latitude
         val gwuLong = address.longitude

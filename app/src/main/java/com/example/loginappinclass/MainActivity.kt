@@ -11,8 +11,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import com.google.android.gms.maps.MapsInitializer
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+
+//    private val FirebaseFirestore: firestore = TODO();
+
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var loginBtn: Button
@@ -22,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         Log.d("MainActivity","onCreate() called")
+
+//        firestore = FirebaseFirestore.getInstance();
+//        Map<String,Object> user = newHashMap<>();
+
 
         username =  findViewById(R.id.usernameTxt)
         password = findViewById(R.id.passwordTxt)

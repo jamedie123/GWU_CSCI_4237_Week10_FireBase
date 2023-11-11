@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.gms.google-services")
+    id ("com.google.firebase.crashlytics")
+
 }
 
 android {
@@ -37,6 +40,9 @@ android {
 }
 
 dependencies {
+    implementation (platform("com.google.firebase:firebase-bom:30.3.1"))
+    implementation ("com.google.firebase:firebase-crashlytics-ktx")
+    implementation ("com.google.firebase:firebase-analytics-ktx")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -48,6 +54,8 @@ dependencies {
 
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -58,4 +66,15 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-crashlytics-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+
+    // Import the BoM for the Firebase platform
+    implementation (platform("com.google.firebase:firebase-bom:32.5.0"))
+
+    // Declare the dependencies for the desired Firebase products without specifying versions
+    // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
+    implementation ("com.google.firebase:firebase-auth")
+    implementation ("com.google.firebase:firebase-firestore")
+    implementation ("com.google.errorprone:error_prone_annotations:2.15.0")
+
 }
